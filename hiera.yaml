@@ -1,0 +1,15 @@
+# Defines the configuration for Hiera within Puppet.
+# Reference: http://docs.puppetlabs.com/hiera/1/configuring.html
+# I've also symlinked the standard /etc/hiera.yaml config file to this one, to make testing things easier.
+:backends:
+  - yaml
+  - json
+:yaml:
+  :datadir: /etc/puppet/hieradata
+:json:
+  :datadir: /etc/puppet/hieradata
+:hierarchy:
+  - node/"%{::hostname}"
+  - virtual/"%{::virtual}"
+  - operatingsystem/"%{::operatingsystem}"
+  - common

@@ -3,4 +3,4 @@
 import 'nodes/*.pp'
 
 # The configuration here will be applied to all nodes.
-# TODO
+hiera_include('classes')
