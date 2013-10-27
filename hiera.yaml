@@ -3,13 +3,10 @@
 # I've also symlinked the standard /etc/hiera.yaml config file to this one, to make testing things easier.
 :backends:
   - yaml
-  - json
 :yaml:
   :datadir: /etc/puppet/hieradata
-:json:
-  :datadir: /etc/puppet/hieradata
 :hierarchy:
-  - node/"%{::hostname}"
-  - virtual/"%{::virtual}"
-  - operatingsystem/"%{::operatingsystem}"
+  - node/%{::hostname}
+  - virtual/%{::virtual}
+  - operatingsystem/%{::operatingsystem}
   - common
