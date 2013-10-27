@@ -3,4 +3,4 @@
 import 'nodes/*.pp'
 
 # The configuration here will be applied to all nodes.
-hiera_include('classes')
+hiera_include('classes', [])
