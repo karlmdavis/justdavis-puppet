@@ -22,7 +22,6 @@ node 'eddings.justdavis.com' {
   $sonar_ldap={
     url           => 'ldaps://ldap.justdavis.com',
     user_base_dn  => 'ou=people,dc=justdavis,dc=com',
-    group_base_dn => 'ou=groups,dc=justdavis,dc=com',
   }
   class { 'maven::maven' : } ->
   class { 'sonar' :
