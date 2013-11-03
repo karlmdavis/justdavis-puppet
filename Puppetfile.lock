@@ -1,0 +1,31 @@
+FORGE
+  remote: http://forge.puppetlabs.com
+  specs:
+    maestrodev/maven (1.1.7)
+      maestrodev/wget (>= 1.0.0)
+    maestrodev/wget (1.2.2)
+    puppetlabs/apt (1.4.0)
+      puppetlabs/stdlib (>= 2.2.1)
+    puppetlabs/concat (1.0.0-rc1)
+    puppetlabs/firewall (0.4.2)
+    puppetlabs/postgresql (3.1.0)
+      puppetlabs/apt (< 2.0.0, >= 1.1.0)
+      puppetlabs/concat (< 2.0.0, >= 1.0.0)
+      puppetlabs/firewall (>= 0.0.4)
+      puppetlabs/stdlib (< 5.0.0, >= 3.2.0)
+    puppetlabs/stdlib (4.1.0)
+
+GIT
+  remote: https://github.com/karlmdavis/puppet-sonar
+  ref: master
+  sha: 3e820c617c7d5670903ea6d3296fe1cb0cfb2c05
+  specs:
+    sonar (1.0.3)
+      maestrodev/maven (>= 0.0.2)
+      maestrodev/wget (>= 0.0.1)
+      puppetlabs/stdlib (>= 2.3.0)
+
+DEPENDENCIES
+  puppetlabs/postgresql (>= 0)
+  sonar (>= 0)
+
