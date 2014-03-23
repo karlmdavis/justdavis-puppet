@@ -1,1 +1,3 @@
 ---
+# Needed to prevent errors caused by empty YAML files.
+notused: foo
