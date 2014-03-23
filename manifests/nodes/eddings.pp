@@ -5,6 +5,14 @@ node 'eddings.justdavis.com' {
     listen_addresses => 'localhost',
   }
 
+  # Add a PostgreSQL DB for the RPS Service (https://github.com/karlmdavis/rps-tourney/) to use.
+  $rps_db_password='rpspassword'
+  postgresql::server::db { 'rps':
+    user     => 'rps',
+    password => postgresql_password('rps', $rps_db_password),
+    encoding => 'UTF8',
+  }
+
   # Add a PostgreSQL DB for Sonar to use.
   $sonar_db_password='sonarpassword'
   postgresql::server::db { 'sonar':
