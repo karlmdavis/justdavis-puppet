@@ -40,4 +40,23 @@ node 'eddings.justdavis.com' {
     ldap         => $sonar_ldap,
     require      => Postgresql::Server::Db['sonar'],
   }
+
+  # Install the Oracle JDK 8, for Jenkins to use.
+  class { 'jdk_oracle' :
+    version      => '8',
+    version_update => '31',
+    version_build => '13',
+    # Will be installed to '/usr/local/jdk1.8.0_31'.
+    install_dir => '/usr/local',
+    # Do not add it to the path or environment.
+    default_java => false,
+  } ->
+  # Add the justdavis.com CA root to the JDK 8's truststore.
+  java_ks { 'justdavis.com-ca-root:/usr/local/jdk1.8.0_31/jre/lib/security/cacerts':
+    ensure       => latest,
+    certificate  => '/etc/ssl/certs/justdavis.com-wildcard-ca-root.pem',
+    target       => '/usr/local/jdk1.8.0_31/jre/lib/security/cacerts',
+    password     => 'changeit',
+    trustcacerts => true,
+  }
 }
